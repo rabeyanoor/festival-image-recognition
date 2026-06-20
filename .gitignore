@@ -1,0 +1,9 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Local Test Files
+*_test_image*.png
+*_test_image*.jpg
+kaggle_festival_dataset/

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FestiveLens AI: Instant AI-powered recognition for religious festivals including Eid, Durga Puja, and Christmas using advanced zero-shot vision intelligence.">
+    <title>FestiveLens AI - Festival Image Recognition</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
+    <main class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-wand-magic-sparkles brand-icon"></i>
+                <h1>Festive<span>Lens</span> AI</h1>
+            </div>
+            <p class="tagline">Explore and identify religious celebrations instantly using advanced vision intelligence.</p>
+        </header>
+
+        <section class="main-content">
+            <!-- Upload Panel -->
+            <div class="panel upload-panel">
+                <div class="dropzone" id="dropzone">
+                    <input type="file" id="fileInput" accept="image/*" class="file-input">
+                    <div class="dropzone-content" id="dropzoneContent">
+                        <div class="icon-wrapper">
+                            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                        </div>
+                        <h3>Drag & drop your festival image here</h3>
+                        <p class="or-text">or</p>
+                        <button type="button" id="browseBtn" class="btn btn-primary">Browse Files</button>
+                        <p class="file-hint">Supports JPEG, PNG, WEBP (Max 10MB)</p>
+                    </div>
+                    <div class="preview-container hidden" id="previewContainer">
+                        <img id="imagePreview" src="#" alt="Uploaded image preview">
+                        <button type="button" id="removeImgBtn" class="btn-remove" title="Remove image">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="actions-bar hidden" id="actionsBar">
+                    <button type="button" id="analyzeBtn" class="btn btn-gradient btn-full">
+                        <span id="btnText">Analyze Festival</span>
+                        <span class="spinner hidden" id="btnSpinner"><i class="fa-solid fa-circle-notch fa-spin"></i></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="panel results-panel hidden" id="resultsPanel">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-chart-simple header-icon"></i> Recognition Results</h2>
+                    <p>Model confidence scores for the uploaded image</p>
+                </div>
+                
+                <div class="results-list" id="resultsList">
+                    <!-- Dynamic result items will be inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <footer class="app-footer">
+            <p>Powered by <strong>OpenAI CLIP</strong> Zero-Shot Classification. Developed with ❤️</p>
+        </footer>
+    </main>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
